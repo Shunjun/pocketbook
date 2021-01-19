@@ -1,0 +1,17 @@
+.list {
+  position: fixed;
+  width: 100%;
+  display: flex;
+}
+
+.scrollView {
+  height: 100%;
+}
+
+.scrollView .list-item:first-child {
+  padding-top: 12px;
+}
+
+.scrollView .list-item:last-child {
+  padding-bottom: 12px;
+}

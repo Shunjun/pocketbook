@@ -1,0 +1,61 @@
+.keyboard {
+  background-color: #f1f1f1;
+  box-sizing: border-box;
+  display: flex;
+  padding: 7px;
+  .row {
+    display: flex;
+  }
+  .button {
+    flex: 1;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 94px;
+    background-color: #ffffff;
+    padding: 8px;
+    margin: 7px;
+    &.hover {
+      background-color: #f4f4f4;
+    }
+  }
+}
+
+.keyboard .numbers {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 75%;
+  .zero {
+    flex: 2.2;
+  }
+  .point {
+    flex: 1;
+  }
+}
+
+.keyboardRight {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  .row {
+    display: flex;
+    :global(.iconfont) {
+      color: #666666;
+      font-size: 46px;
+    }
+  }
+  .submit {
+    display: flex;
+    width: initial;
+    flex-grow: 1;
+    .button {
+      height: initial;
+      padding: 8px;
+      background-color: #2da2b2;
+      font-size: 36px;
+      color: #ffffff;
+    }
+  }
+}

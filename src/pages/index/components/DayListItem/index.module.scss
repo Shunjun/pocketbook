@@ -1,0 +1,121 @@
+/* 列表 */
+.listItemWarp {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+
+.listItem {
+  display: block;
+  background-color: white;
+  margin: 10px 24px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.title {
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28px;
+  background-color: #fbfbfb;
+  // 左边容器
+  .left {
+    font-weight: 700;
+    margin-left: 30px;
+    .todayFlag {
+      margin-left: 14px;
+    }
+  }
+  // 右边容器
+  .right {
+    display: flex;
+    align-items: center;
+    .income,
+    .outcome {
+      display: flex;
+      align-items: center;
+      margin-right: 32px;
+    }
+    .icon {
+      color: #666666;
+      font-size: 20px;
+      height: 32px;
+      width: 32px;
+      line-height: 32px;
+      text-align: center;
+      background-color: #f3f3f3;
+      margin-right: 2px;
+    }
+  }
+}
+
+.content {
+  font-size: 28px;
+  .income,
+  .outcome {
+    height: 130px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.dataItemList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.catlogIcon {
+  height: 72px;
+  width: 72px;
+  border-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin: 0 30px;
+  text {
+    font-size: 44px;
+    padding-bottom: 4px;
+  }
+}
+
+.income .catlogIcon {
+  background-color: #e48e1f;
+}
+
+.outcome .catlogIcon {
+  background-color: #2da2b2;
+}
+
+.income .amount {
+  color: #e48e1f;
+}
+
+.content .dataItemList:last-child .descView {
+  border-bottom: none;
+}
+
+.descView {
+  flex: 1;
+  margin-right: 30px;
+  height: 100%;
+  border-bottom: 1px solid #ededed;
+  .time {
+    font-size: 22px;
+    color: #999999;
+  }
+}
+
+.desc {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.desc .catlog {
+  font-size: 30px;
+}
+.desc .amount {
+  font-size: 32px;
+  font-weight: 700;
+}

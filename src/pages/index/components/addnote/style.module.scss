@@ -1,0 +1,110 @@
+@import '~taro-ui/dist/style/variables/default.scss';
+
+.sift {
+  display: block;
+  margin-top: 28px;
+  overflow: hidden;
+}
+.sift .fl {
+  float: left;
+  margin-left: 40px;
+}
+.sift .fr {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  font-size: 26px;
+  float: right;
+  margin-right: 40px;
+  background-color: #f1f1f1;
+  padding: 0 12px 0 24px;
+  border-radius: 27px;
+}
+
+.sift .fr text {
+  color: #1b1b1b;
+  line-height: 54px;
+}
+.sift .fr .icon {
+  font-size: 1.4em;
+  vertical-align: middle;
+  color: #cccccc;
+}
+.inputarea {
+  display: flex;
+  justify-content: start;
+  overflow: hidden;
+  height: 126px;
+  border-bottom: 1px solid #e2e2e2;
+  margin: 12px 44px 0;
+}
+.inputarea .label {
+  height: 126px;
+  font-size: 60px;
+  font-weight: 700;
+  margin-top: 14px;
+}
+.inputarea .input {
+  height: 126px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 126px;
+}
+.inputarea .cursor {
+  margin: 30px 0 30px 12px;
+  width: 4px;
+  height: 66px;
+  background-color: #c9c9c9;
+}
+.catlogs {
+  overflow: scroll;
+  height: 140px;
+  display: flex;
+  justify-content: start;
+  margin: 20px;
+  align-items: center;
+}
+.catlogs::-webkit-scrollbar {
+  display: none;
+}
+.catlog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 2px;
+  width: 90px;
+  height: 120px;
+  flex-shrink: 0;
+  .iconbg {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background-color: #ececec;
+    border-radius: 40px;
+    color: #c7c7c7;
+    text-align: center;
+  }
+}
+.catlog .iconbg text {
+  font-size: 36px;
+  line-height: 60px;
+}
+.catlog .outcActive {
+  background-color: #2da2b2;
+  color: #ffffff;
+}
+.catlog .incActive {
+  background-color: #e48e1f;
+  color: #ffffff;
+}
+.catlog .label {
+  margin-top: 6px;
+  font-size: 20px;
+  color: #696969;
+  display: block;
+  text-align: center;
+}

@@ -1,0 +1,34 @@
+.endlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  font-size: 24px;
+  color: #999999;
+  .line {
+    width: 160px;
+    margin: 0 20px;
+    height: 2px;
+    border-bottom: 1px solid #999999;
+  }
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  font-size: 26px;
+  color: #999999;
+}
+.loadMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  font-size: 26px;
+  font-weight: 700;
+  color: #2da2b2;
+}

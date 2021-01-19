@@ -1,0 +1,68 @@
+.header {
+  z-index: 10;
+  background-color: #2da2b2;
+  position: sticky;
+  top: 0;
+  .AtNavBar {
+    margin-top: 50px;
+    background-color: initial;
+    .at-nav-bar__title {
+      color: white;
+    }
+  }
+}
+
+.nav-bar .weui-navigation-bar__center {
+  font-size: 32px;
+}
+.flexControl {
+  display: inline-flex;
+  align-items: center;
+  height: 60px;
+  margin: 24px 0 0 22px;
+  padding: 0 22px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 28px;
+  line-height: 28px;
+  color: white;
+  .catlogIcon {
+    font-size: 32px;
+    line-height: 32px;
+    color: #ffffff;
+  }
+}
+
+.dateView {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  // height: 78px;
+  white-space: nowrap;
+  margin: 0 24px;
+  font-size: 27px;
+  color: white;
+  .datePicker {
+    font-size: 28px;
+    height: 78px;
+    display: flex;
+    align-items: center;
+  }
+  :global(.icontriangle-down) {
+    font-size: 32px;
+    opacity: 0.5;
+  }
+}
+
+.expence {
+  flex: 1;
+  white-space: nowrap;
+  margin-left: 24px;
+  padding: 18px 0;
+  .expenceItem {
+    line-height: 42px;
+    display: inline-block;
+    opacity: 0.8;
+    margin-right: 24px;
+  }
+}

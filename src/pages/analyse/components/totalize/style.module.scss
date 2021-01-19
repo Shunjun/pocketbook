@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.outcome {
+  color: #2da2b2;
+  margin-bottom: 16px;
+  .label {
+    text-align: center;
+    font-size: 28px;
+  }
+  .amount {
+    margin-left: 36px;
+    position: relative;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 70px;
+    .subscript {
+      position: absolute;
+      top: -2px;
+      left: -36px;
+      font-size: 36px;
+      font-weight: 500;
+    }
+  }
+}
+
+.income {
+  color: #6b6b6b;
+  font-size: 26px;
+  line-height: 40px;
+  .amount {
+    display: inline;
+    font-size: 1.1em;
+  }
+}

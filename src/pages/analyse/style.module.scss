@@ -1,0 +1,31 @@
+/* miniprogram/pages/analyse/analyse.wxss */
+page {
+  background-color: #fafafa;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.mouthPicker {
+  display: flex;
+  align-items: center;
+  margin: 50px auto 30px;
+  padding: 0 20px;
+  height: 60px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  color: #191919;
+  font-size: 28px;
+  .icon {
+    color: #636363;
+    font-size: 32px;
+  }
+}

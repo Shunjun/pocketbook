@@ -1,0 +1,39 @@
+.collect {
+  position: relative;
+  font-size: 26px;
+  margin: 12px 40px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.dividinglineBlack {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 2px;
+  height: 28px;
+  background-color: #dcdcdc;
+  margin-left: -12px;
+}
+
+.month {
+  display: inline-block;
+  color: #666666;
+}
+
+.expence {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 170px;
+  .expenceItem {
+    color: #999999;
+    margin-right: 20px;
+  }
+}
+
+.hide {
+  overflow: hidden;
+  height: 0;
+}
