@@ -1,7 +1,11 @@
-import { setItem } from '@/utils/store';
+import { setItem, getItem } from '@/utils/store';
 import Taro from '@tarojs/taro';
 
+let isGetting = false;
+
 export function getSession() {
+  if (getItem('openId') || isGetting) return;
+  isGetting = true;
   Taro.cloud
     .callFunction({
       name: 'login',
@@ -11,5 +15,8 @@ export function getSession() {
     })
     .catch(err => {
       console.log(err);
+    })
+    .finally(() => {
+      isGetting = false;
     });
 }

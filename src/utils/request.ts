@@ -17,6 +17,8 @@ export const request = async (options: requestOptions) => {
       data,
     })) as { errMsg: string; result: ResponsType };
 
+    console.log(res);
+
     if (res.errMsg === 'cloud.callFunction:ok' && res.result) {
       // 请求调用成功
       if (res.result['ok'] === 1) {

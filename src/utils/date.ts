@@ -197,3 +197,19 @@ export function subtractDate(date: DateType, number: number, type: string): Date
 
   return new Date(year, month, day);
 }
+
+export function getMonthDateList(date) {
+  const dateObj = getDateObj(date);
+  let dateList: string[] = [];
+
+  let year = dateObj.getFullYear();
+  let month = dateObj.getMonth();
+  let day = 1;
+
+  while (isSameMonth(new Date(year, month, day), dateObj)) {
+    dateList.push(dateFormat('yyyy-MM-dd', new Date(year, month, day)));
+    day++;
+  }
+
+  return dateList;
+}

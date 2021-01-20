@@ -11,14 +11,16 @@ import {
   isFirstDayOfMonth,
   DateType,
   subtractDate,
+  getMonthDateList,
 } from '@/utils/date';
-import { getMonthStatistic } from '@/requests/analyse';
-import { MonthStatisticType, MonthStatisticItemType } from '@/types/analyse';
+import { getMonthStatistic, getDailyStatistic } from '@/requests/analyse';
+import { MonthStatisticType } from '@/types/analyse';
 import { merge } from 'lodash';
 import useTabbarInfo from '@/hooks/useTabbarInfo';
 // components
 import { ScrollView } from '@tarojs/components';
-import Monthanlyse from './components/monthAnlyse';
+import MonthAnalyse from './components/monthAnaylse';
+import DailyAnalyse from './components/dailyAnaylse';
 import Totalize from './components/totalize';
 import NavBar from '@/components/Navbar';
 import BookTabBar from '@/components/TabBar';
@@ -89,8 +91,8 @@ function transformDataForCharts(month, data) {
 
   dateList.forEach(item => {
     const dataItem = data.find(d => DateNumber2DateString(d.month) === item);
-    const income = dataItem?.expenses.income.month_expense || 0;
-    const outcome = dataItem?.expenses.outcome.month_expense || 0;
+    const income = dataItem?.expenses.income.expense || 0;
+    const outcome = dataItem?.expenses.outcome.expense || 0;
     // TODO :处理跨年的月份
     const xAxis = Number(item.slice(-2)) + '月';
 
@@ -100,7 +102,32 @@ function transformDataForCharts(month, data) {
     chartsData.outcome.data.push(outcome as number);
   });
 
-  console.log(chartsData, defaultchartsData);
+  return chartsData;
+}
+
+/**
+ * 处理每日Charts显示的数据
+ *
+ * @param {*} data
+ * @return {*}
+ */
+function transformDataForDailyCharts(month: string, data) {
+  const chartsData = merge({}, defaultchartsData);
+  const dateList = getMonthDateList(month);
+
+  console.log('🍉', data, dateList);
+
+  dateList.forEach(item => {
+    const dayItem = data.find(d => DateNumber2DateString(d.date) === item);
+    const income = dayItem?.expenses.income.expense || 0;
+    const outcome = dayItem?.expenses.outcome.expense || 0;
+    const xAxis = getDayXAxis(item);
+
+    chartsData.income.xAxis.push(xAxis);
+    chartsData.income.data.push(income as number);
+    chartsData.outcome.xAxis.push(xAxis);
+    chartsData.outcome.data.push(outcome as number);
+  });
 
   return chartsData;
 }
@@ -131,6 +158,7 @@ const Analyse = props => {
       setTotalizeData(res);
     });
   }, []);
+
   // 计算当前月份数据
   useEffect(() => {
     let data = {
@@ -144,8 +172,8 @@ const Analyse = props => {
       if (DateNumber2DateString(item.month) === pickerMonth) {
         data = {
           month: pickerMonth,
-          income: item.expenses.income.month_expense,
-          outcome: item.expenses.outcome.month_expense,
+          income: item.expenses.income.expense,
+          outcome: item.expenses.outcome.expense,
         };
       }
     }
@@ -154,7 +182,7 @@ const Analyse = props => {
   }, [pickerMonth, totalizeData]);
 
   // 处理数据用来显示图表
-  const [chartData, setChartData] = useState<ReturnType<typeof transformDataForCharts>>();
+  const [chartData, setChartData] = useState<chartsDataType>();
   useEffect(() => {
     setChartData(transformDataForCharts(pickerMonth, totalizeData));
   }, [pickerMonth, totalizeData]);
@@ -167,6 +195,16 @@ const Analyse = props => {
     let height = navbarRef.current.getNavbarHeight();
     setNavbarheight(height);
   });
+
+  // 获取每日的统计数据
+  const [dailyChartData, setDailyChartData] = useState<chartsDataType>();
+  useEffect(() => {
+    getDailyStatistic(pickerMonth).then(res => {
+      // TODO
+      const data = transformDataForDailyCharts(pickerMonth, res);
+      setDailyChartData(data);
+    });
+  }, [pickerMonth]);
 
   return (
     <Block>
@@ -187,8 +225,8 @@ const Analyse = props => {
           <Totalize income={curMonthTotalize.income} outcome={curMonthTotalize.outcome} />
         </View>
 
-        <Monthanlyse income={chartData?.income} outcome={chartData?.outcome} />
-        <Monthanlyse income={chartData?.income} outcome={chartData?.outcome} />
+        <DailyAnalyse income={dailyChartData?.income} outcome={dailyChartData?.outcome} />
+        <MonthAnalyse income={chartData?.income} outcome={chartData?.outcome} />
       </ScrollView>
 
       {/* tabbar */}

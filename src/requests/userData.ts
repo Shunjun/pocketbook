@@ -2,6 +2,7 @@ import { getItem } from '@/utils/store';
 import { request } from '@/utils/request';
 import { PagingData } from '@/types/request';
 import { userDataList } from '@/types/userData';
+import { getSession } from './user';
 
 export interface UserDataQueryType {
   page: number;
@@ -12,6 +13,9 @@ export interface UserDataQueryType {
  * 请求用户数据列表
  */
 export const getUserData = async (query: UserDataQueryType): Promise<PagingData<userDataList>> => {
+  if (!getItem('openId')) {
+    getSession();
+  }
   const { page, catlog_id, month } = query;
   const queryData = {
     openId: getItem('openId'),

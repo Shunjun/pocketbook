@@ -6,10 +6,15 @@ import configStore from './store';
 import './assets/fonts/iconfont.css';
 import './app.scss';
 
+interface AppState {
+  initial: boolean;
+}
+
 const store = configStore();
 
-class App extends Component {
-  componentDidMount() {
+class App extends Component<{}, AppState> {
+  constructor(props) {
+    super(props);
     const cloud = Taro.cloud;
     if (!Taro.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
@@ -25,6 +30,8 @@ class App extends Component {
     }
     getSession();
   }
+
+  componentDidMount() {}
 
   componentDidShow() {}
 

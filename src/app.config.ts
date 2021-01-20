@@ -1,10 +1,5 @@
 export default {
-  pages: [
-    'pages/analyse/index',
-    'pages/index/index',
-
-    // 'pages/setting/index',
-  ],
+  pages: ['pages/index/index', 'pages/analyse/index', 'pages/setting/index'],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
@@ -28,7 +23,7 @@ export default {
       },
       {
         text: '设置',
-        pagePath: 'pages/index/index',
+        pagePath: 'pages/setting/index',
         iconPath: '/assets/images/control.png',
         selectedIconPath: '/assets/images/control-fill.png',
       },

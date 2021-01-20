@@ -18,7 +18,7 @@ type MapStateToProps = Readonly<ReturnType<typeof mapStateToProps>>;
 type SwitchItemProps = MapStateToProps;
 
 const mapStateToProps = ({ catlog }, ownProps: SwitchItemOwnProps) => {
-  const { activeType, onSwitch, size } = ownProps;
+  const { activeType, onSwitch, size = 'normal' } = ownProps;
   return {
     catlog,
     activeType,

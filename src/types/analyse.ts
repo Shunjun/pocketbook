@@ -3,13 +3,27 @@ export interface MonthStatisticItemType {
   expenses: {
     income: {
       type: number;
-      month_expense: number;
+      expense: number;
     };
     outcome: {
       type: number;
-      month_expense: number;
+      expense: number;
     };
   };
 }
-
 export type MonthStatisticType = MonthStatisticItemType[];
+
+export interface DailyStatisticItemType {
+  date: number;
+  expenses: {
+    income: {
+      type: number;
+      expense: number;
+    };
+    outcome: {
+      type: number;
+      expense: number;
+    };
+  };
+}
+export type DailyStatisticType = DailyStatisticItemType[];
